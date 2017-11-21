@@ -1,0 +1,22 @@
+---
+
+spring:
+  application:
+    name: label-registration
+
+feign:
+  hystrix:
+    enabled: false
+
+---
+
+spring:
+  profiles: dev
+
+eureka:
+  client:
+    enabled: false
+
+register:
+   ribbon:
+      listOfServers: http://localhost:8081

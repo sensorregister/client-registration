@@ -1,0 +1,13 @@
+---
+
+logging:
+   level:
+      nl.kadaster.sensor: INFO
+      org.springframework: INFO
+
+spring:
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      exclude: static/**,templates/**
