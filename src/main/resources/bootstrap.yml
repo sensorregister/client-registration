@@ -2,7 +2,7 @@
 
 spring:
   application:
-    name: label-registration
+    name: registration
 
 feign:
   hystrix:
@@ -12,6 +12,9 @@ feign:
 
 spring:
   profiles: dev
+
+server:
+   port: 8082
 
 eureka:
   client:

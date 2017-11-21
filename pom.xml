@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>nl.kadaster.sensor</groupId>
-    <artifactId>client-registration</artifactId>
+    <artifactId>registration</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>client-registration</name>
-    <description>Demo project for Spring Boot</description>
+    <name>registration</name>
+    <description>Registration module for clients/codes</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -116,10 +116,20 @@
                             <goal>repackage</goal>
                         </goals>
                         <configuration>
-                            <finalName>client-registration</finalName>
+                            <finalName>registration</finalName>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>1.5.8.RELEASE</version>
+                <configuration>
+                    <jvmArguments>
+                        -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005
+                    </jvmArguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>

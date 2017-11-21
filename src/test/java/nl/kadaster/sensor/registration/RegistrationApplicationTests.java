@@ -1,4 +1,4 @@
-package nl.kadaster.sensor.clientregistration;
+package nl.kadaster.sensor.registration;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class ClientRegistrationApplicationTests {
+public class RegistrationApplicationTests {
 
 	@Test
 	public void contextLoads() {
