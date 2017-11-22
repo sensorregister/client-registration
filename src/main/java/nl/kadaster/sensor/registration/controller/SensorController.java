@@ -1,6 +1,7 @@
 package nl.kadaster.sensor.registration.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -36,11 +37,13 @@ public class SensorController {
 	@PostMapping(path = "/", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public ModelAndView home(@ModelAttribute Sensor sensor) {
 
-		if (null == sensor.getId()) {
-			sensorClient.create(sensor);
-		} else {
-			sensorClient.update(sensor.getId(), sensor);
-		}
+		Code code = sensorClient.findCodeByValue(sensor.getCode().getValue());
+		code.setStatus("ACTIVATED");
+		Resource<Sensor> resultSensor = sensorClient.create(sensor);
+
+		sensorClient.linkSensor(code.getId(), resultSensor.getId().getHref());
+		sensorClient.update(code.getId(), code);
+
 		return new ModelAndView("succes");
 	}
 
