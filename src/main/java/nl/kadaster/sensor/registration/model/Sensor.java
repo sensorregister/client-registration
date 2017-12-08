@@ -6,18 +6,19 @@ import com.google.common.base.MoreObjects;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Sensor {
 
-	private Long id;
+	private long id;
 	private String name;
 	private String description;
-	private Code code;
+	private String codeValue;
 
-	public Sensor() {}
+	public Sensor() {
+	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -37,12 +38,12 @@ public class Sensor {
 		this.description = description;
 	}
 
-	public Code getCode() {
-		return code;
+	public String getCodeValue() {
+		return codeValue;
 	}
 
-	public void setCode(Code code) {
-		this.code = code;
+	public void setCodeValue(String codeValue) {
+		this.codeValue = codeValue;
 	}
 
 	@Override
@@ -51,8 +52,7 @@ public class Sensor {
 				.add("id", id)
 				.add("name", name)
 				.add("description", description)
-				.add("code", code)
+				.add("codeValue", codeValue)
 				.toString();
 	}
-
 }
